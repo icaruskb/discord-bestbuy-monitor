@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Build output directories
+dist/
+build/
+
+# Log files
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Optional (based on your use case)
+# package-lock.json
+# .gitignore
