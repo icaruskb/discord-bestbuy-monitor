@@ -70,11 +70,11 @@ const scrapeProduct = async (sku) => {
 };
 
 // Function to check product status periodically
-const checkProductsPeriodically = () => {
+const checkingStock = () => {
+    console.log("checking products periodically")
     for (const sku of SKUS) {
         scrapeProduct(sku); // Scrape each SKU
-    }
-    setInterval(checkProductsPeriodically, 45000); // Check every 45 seconds
+    } // Check every 45 seconds
 };
 
 // handle new skus being added / removed
@@ -90,6 +90,7 @@ client.on('messageCreate', (message) => {
         if (skuToAdd) {
             SKUS.push(skuToAdd);
             message.channel.send(`SKU ${skuToAdd} added for monitoring.`);
+            console.log(`${skuToAdd} now being monitored.`)
         } else {
             message.channel.send('Please provide a SKU to add.');
         }
@@ -144,5 +145,6 @@ client.on('messageCreate', (message) => {
 //log into bot
 client.once("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
-    checkProductsPeriodically(); // Start the periodic scraping
+    checkingStock(); // Start the periodic scraping
+    setInterval(checkingStock, 45000); // check stock every 45 seconds
 });
