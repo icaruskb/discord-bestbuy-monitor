@@ -20,7 +20,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 // Function to scrape the product page for a specific SKU
 const scrapeProduct = async (sku) => {
-    const URL = `https://www.bestbuy.com/site/pokemon-trading-card-game-scarlet-violet-stellar-crown-6pk-booster-bundle/${sku}.p?skuId=${sku}`;
+    const URL = `https://www.bestbuy.com/site/${sku}.p?skuId=${sku}`;
     try {
         const response = await axios.get(URL, {
             headers: {
@@ -103,12 +103,41 @@ client.on('messageCreate', (message) => {
             message.channel.send(`SKU ${skuToRemove} not found.`);
         }
     } else if (command === 'listskus') {
+        // eventually update to show the names with skus
         message.channel.send(`Currently monitoring SKUs: ${SKUS.join(', ')}`);
     } else if (command === 'forceload') {
         message.channel.send('force loading');
         for (const sku of SKUS) {
             scrapeProduct(sku);
         }
+    } else if (command ==='dinohelp') {
+        message.channel.send('!addsku [sku] to add product to monitoring list');
+        message.channel.send('!removesku [sku] to remove product from monitoring list');
+        message.channel.send('!listskus to show currently monitored skus')
+        message.channel.send('!forceload to force refresh the monitor');
+        message.channel.send(`\`\`\`
+            _
+          .o  \`,
+         {__,  \\
+             \\' \\
+              \\  \\
+               \\  \\
+                \\  \`._            __.__
+                 \\    ~-._  _.==~~     ~~--.._
+                  \\        '                  ~-.
+                   \\      _-   -_                \`.
+                    \\    /       }        .-    .  \\
+                     \`. |      /  }      (       ;  \\
+                       \`|     /  /       (       :   '\\
+                        \\    |  /        |      /       \\
+                         |     /\`-.______.\\     |~-.      \\
+                         |   |/           (     |   \`.      \\_
+                         |   ||            ~\\   \\      '._    \`-.._____..----..___
+                         |   |/             _\\   \\         ~-.__________.-~~~~~~~~~'''
+                       .o'___/            .o______}
+   \`\`\``);
+   
+
     }
 });
 
