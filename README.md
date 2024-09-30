@@ -4,6 +4,7 @@
 
 ## Why?
 I started collecting Pokemon TCG again and have been wanting a specific set, SV 151, but it's consistently out of stock due to high demand. In order to combat this problem I created a discord bot that scrapes BestBuy's website in order to check for whether the product is in stock. This eventually grew to become something larger and I can now consistently track any product from BestBuy with intentions of adding other sites.
+![Screenshot 2024-09-29 234259](https://github.com/user-attachments/assets/069df5ae-31ef-426b-a74a-7f928998de4c)
 
 ## Features
 
