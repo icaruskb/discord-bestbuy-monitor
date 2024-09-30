@@ -32,7 +32,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed. You will also need 
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/Discord-Bestbuy-Stock-Monitor.git
+   git clone https://github.com/icaruskb/Discord-Bestbuy-Stock-Monitor.git
    cd Discord-Bestbuy-Stock-Monitor
 2. Run 'npm install'
 3. Create a new '.env' file within the folder in order to add bot credentials
